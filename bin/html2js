@@ -14,7 +14,6 @@ var help = function () {
         '',
         'Config',
         [
-            ' --output value  Set output directory',
             '--charset value  Output file charset, "utf-8" by default',
             '   --type value  Connect string type, "as" by default',
             '                 Array or Plus connect, Double or Single quotation',
@@ -36,18 +35,18 @@ var config = {
     version: '0.0.1'
 };
 
-if ( args[ 0 ] && /^[^-]|\//.test( args[ 0] ) ) {
+//参数1表示需要转化的模板目录
+if ( args[ 0 ] && /^[^-]|\//.test( args[ 0 ] ) ) {
     config.basePath = args.shift();
+}
+
+//参数2表示转化后输出目录
+if ( args[ 0 ] && /^[^-]|\//.test( args[ 0 ] ) ) {
+    config.output = args.shift();
 }
 
 while( args.length > 0 ) {
     switch( args.shift() ) {
-
-        // 输出目录
-        case '-o':
-        case '--output':
-            config.output = args.shift();
-            break;
 
         // 模板输出类型
         case '-t':

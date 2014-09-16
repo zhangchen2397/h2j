@@ -31,13 +31,13 @@ var Html2js = function( config ) {
     this.basePath = path.resolve( this.config.basePath );
 
     //输出路径，相对于basePath目录
-    this.output = path.resolve( this.basePath, this.config.output );
+    this.output = path.resolve( this.config.output );
 
     //初始化事件系统
     events.EventEmitter.call( this );
 
     //清理导出目录
-    this.delDir( this.output );
+    //this.delDir( this.output );
 
     //初始化转化组件
     this.init.call( this );
@@ -202,7 +202,7 @@ Html2js.prototype = {
 
             var time = (new Date).toLocaleTimeString();
             this.log('[yellow]' + time + '[/yellow]\n');
-            this.log( target.replace( this.basePath, '' ) + ' [green]success[/green]\n' );
+            this.log( target.replace( this.output, this.config.output ) + ' [green]success[/green]\n' );
             console.log( '------------------------------------' );
         } catch ( e ) {
             console.log( e );
@@ -251,6 +251,8 @@ Html2js.prototype = {
                 } else {
                     outArr.push( twoTab + value + "\',\n" );
                 }
+            } else {
+                outArr.push( '\n' );
             }
         } );
 

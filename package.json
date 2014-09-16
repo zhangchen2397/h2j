@@ -1,0 +1,20 @@
+{
+    "name": "html2js",
+    "version": "0.0.1",
+    "readmeFilename": "README.md",
+    "description": "mautomatic transfer html to mode js file",
+    "homepage": "https://github.com/zhangchen2397/html2js",
+    "keywords": [
+        "html2js"
+    ],
+    "author": "zhangchen2397",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zhangchen2397/html2js"
+    },
+    "main": "./src/html2js.js",
+    "bin": {
+        "html2js": "./bin/html2js"
+    },
+    "license": "BSD"
+}
