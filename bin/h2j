@@ -8,7 +8,7 @@ var version = require( '../package.json' ).version;
 
 var help = function () {
     var message = [
-        'h2j: mautomatic transfer html to mode js file',
+        'h2j: Automatically converts HTML template into modular js',
         '',
         'Usage',
         '    h2j [options]',
