@@ -1,0 +1,21 @@
+{
+    "name": "h2j",
+    "version": "0.0.2",
+    "readmeFilename": "README.md",
+    "description": "Automatically converts HTML template into modular js code",
+    "homepage": "https://github.com/zhangchen2397/h2j",
+    "keywords": [
+        "h2j",
+        "html2js"
+    ],
+    "author": "zhangchen2397",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zhangchen2397/h2j"
+    },
+    "main": "./src/h2j.js",
+    "bin": {
+        "h2j": "./bin/h2j"
+    },
+    "license": "BSD"
+}

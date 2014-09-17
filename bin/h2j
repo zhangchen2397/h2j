@@ -1,0 +1,89 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fs = require( 'fs' );
+var h2j = require( '../src/h2j.js' );
+var version = require( '../package.json' ).version;
+
+var help = function () {
+    var message = [
+        'h2j: mautomatic transfer html to mode js file',
+        '',
+        'Usage',
+        '    h2j [options]',
+        '',
+        'Config',
+        [
+            '--charset value  Output file charset, "utf-8" by default',
+            '   --type value  Connect string type, "as" by default',
+            '                 Array or Plus connect, Double or Single quotation',
+            '      --version  Print the h2j version',
+            '         --help  Display this help text'
+        ].join('\n')
+    ].join( '\n' );
+
+    process.stdout.write( message + '\n' );
+};
+
+var args = process.argv.slice( 2 );
+
+var config = {
+    basePath: './',
+    output: './des',
+    modType: 'amd',
+    strType: 'as',
+    charset: 'utf-8'
+};
+
+//参数1表示需要转化的模板目录
+if ( args[ 0 ] && /^[^-]|\//.test( args[ 0 ] ) ) {
+    config.basePath = args.shift();
+}
+
+//参数2表示转化后输出目录
+if ( args[ 0 ] && /^[^-]|\//.test( args[ 0 ] ) ) {
+    config.output = args.shift();
+}
+
+while( args.length > 0 ) {
+    switch( args.shift() ) {
+
+        // 转出模块化代码规范
+        case '-mt':
+            config.modType = args.shift();
+            break;
+
+        // 拼接字符串方式
+        case '-st':
+            config.strType = args.shift();
+            break;
+
+        // 模板编码
+        case '-c':
+        case '--charset':
+            config.charset = args.shift();
+            break;
+
+        // 显示帮助
+        case '-h':
+        case '--help':
+            help();
+            process.exit();
+            break;
+
+        // 版本号
+        case '-v':
+        case '--version':
+            process.stdout.write( version + '\n' );
+            process.exit();
+            break;
+    }
+}
+
+if ( !fs.existsSync( config.basePath ) ) {
+    process.stdout.write( 'Error: directory does not exist\n' );
+    process.exit( 1 );
+}
+
+new h2j( config );
