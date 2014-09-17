@@ -12,6 +12,7 @@ var watch = require( './watch.js' );
 var path = require( './path.js' );
 
 var fs = require( 'fs' );
+var os = require( 'os' );
 var events = require( 'events' );
 
 var h2j = function( config ) {
@@ -254,10 +255,15 @@ h2j.prototype = {
             qType = '',
             outArr = [],
             returnStart = '',
-            returnEnd = '';
+            returnEnd = '',
+            sprStr = '\n';
 
         var oneTab = this.getTab( 1 ),
             twoTab = this.getTab( 2 );
+
+        if ( /windows/i.test( os.type() ) ) {
+            sprStr = '\r\n';
+        }
 
         if ( strType[ 1 ] == 'd' ) {
             htmlArr = source.code
@@ -265,7 +271,7 @@ h2j.prototype = {
                 .replace( /\\/g, "\\/" )
                 .replace( /\'/g, "\\\'" )
                 .replace( /\"/g, "\\\"" )
-                .split( '\r\n' );
+                .split( sprStr );
 
             qType = '\"';
 
@@ -274,7 +280,7 @@ h2j.prototype = {
                 .replace( /\\/g, "\\\\" )
                 .replace( /\\/g, "\\/" )
                 .replace( /\'/g, "\\\'" )
-                .split( '\r\n' );
+                .split( sprStr );
 
             qType = '\'';
         }
