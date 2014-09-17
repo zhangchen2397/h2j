@@ -1,6 +1,6 @@
 {
     "name": "h2j",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "readmeFilename": "README.md",
     "description": "Automatically converts HTML template into modular js",
     "homepage": "https://github.com/zhangchen2397/h2j",
