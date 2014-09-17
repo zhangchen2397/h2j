@@ -16,7 +16,8 @@ var help = function () {
         'Config',
         [
             '--charset value  Output file charset, "utf-8" by default',
-            '   --type value  Connect string type, "as" by default',
+            '      -mt value  js mod type, "amd" as default',
+            '      -st value  Connect string type, "as" by default',
             '                 Array or Plus connect, Double or Single quotation',
             '      --version  Print the h2j version',
             '         --help  Display this help text'
@@ -82,7 +83,7 @@ while( args.length > 0 ) {
 }
 
 if ( !fs.existsSync( config.basePath ) ) {
-    process.stdout.write( 'Error: directory does not exist\n' );
+    process.stdout.write( 'Error: template dir don\'t exist\n' );
     process.exit( 1 );
 }
 
