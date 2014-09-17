@@ -10,7 +10,7 @@ h2j (html2js)
 - 提供良好的模板文件目录管理方式
 
 
-###使用场景
+##使用场景
 
 前端开发处理单页面应用时，所有页面模板都是由前端异步渲染生成，目前常用的方式有以下几种：
 
@@ -92,9 +92,9 @@ tpl
       |--list.js
       |--detail.js
 ```
-如tpl/src/index.html：
 
 ```html
+<!-- tpl/src/index.html -->
 <div class="reply-wrap">
     <div class="bg-comment ic-arrow"></div>
     <div class="post-reply clearfix">
@@ -144,7 +144,7 @@ define( "indexTpl", [], function() {
 } );
 ```
 
-###使用说明
+##使用说明
 
 ###安装h2j
 ```
