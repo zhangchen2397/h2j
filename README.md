@@ -146,3 +146,19 @@ define( "indexTpl", [], function() {
 
 ###使用
 
+###安装h2j
+```
+npm install h2j -g
+```
+
+查看是否安装成功
+```
+h2j -v  //0.0.2
+```
+
+查看参数说明
+```
+h2j -h
+```
+
+
